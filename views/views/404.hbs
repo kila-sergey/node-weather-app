@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/styles/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      {{> nav}}
+        {{#if errorText}}
+        <h1 class="not-found__title">{{errorText}}</h1>
+        {{else}}
+        <h1 class="not-found__title">Page not found</h1>
+        {{/if}}
+      {{> footer}}
+    </div>
+    <script src="/js/app.js" async></script>
+  </body>
+</html>

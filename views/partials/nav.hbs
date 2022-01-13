@@ -1,0 +1,9 @@
+<ul class="nav">
+  {{#if backTo}}
+    <li><a href={{backTo.href}}>&#8592; {{backTo.text}}</a></li>
+  {{else}}
+    <li><a href="/">Main</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/help">Help</a></li>
+  {{/if}}
+</ul>
