@@ -120,10 +120,17 @@ button:hover {
 
 .weather-location {
   margin-bottom: 10px;
-  color: gray;
   font-weight: bold;
 }
 
 .weather-info {
+  display: flex;
   color: gray;
+}
+
+.weather-info .weather-info__icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  margin-right: 5px;
 }

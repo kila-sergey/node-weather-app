@@ -11,13 +11,14 @@ if (weatherFormNode) {
     const errorNode = weatherNode.querySelector(".error");
     const weatherLocationNode = weatherNode.querySelector(".weather-location");
     const weatherInfoNode = weatherNode.querySelector(".weather-info");
+    const weatherTextNode = weatherNode.querySelector(".weather-info__text");
     const loadingNode = weatherNode.querySelector(".loading");
     const address = locationFieldNode.value;
 
     event.preventDefault();
     loadingNode.classList.add("visible");
     weatherLocationNode.textContent = "";
-    weatherInfoNode.textContent = "";
+    weatherTextNode.textContent = "";
     errorNode.textContent = "";
 
     getWeather(address)
@@ -27,8 +28,15 @@ if (weatherFormNode) {
           errorNode.textContent = weatherData.error;
         } else {
           const weatherInfoMessage = `${weatherData.weather_descriptions[0]}. It is currently ${weatherData.temperature} degree out. Feels like ${weatherData.feelslike}.`;
+
+          const weatherImgNode = document.createElement("img");
+          weatherImgNode.setAttribute("src", weatherData.weather_icons[0]);
+          weatherImgNode.classList.add("weather-info__icon");
+
           weatherLocationNode.textContent = weatherData.location;
-          weatherInfoNode.textContent = weatherInfoMessage;
+          weatherTextNode.textContent = weatherInfoMessage;
+
+          weatherInfoNode.insertBefore(weatherImgNode, weatherTextNode);
         }
       })
       .finally(() => loadingNode.classList.remove("visible"));
