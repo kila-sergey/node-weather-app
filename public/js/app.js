@@ -1,7 +1,5 @@
 const getWeather = (address) => {
-  return fetch(
-    `http://localhost:3000/weather?${new URLSearchParams({ address })}`
-  );
+  return fetch(`/weather?${new URLSearchParams({ address })}`);
 };
 
 const weatherFormNode = document.querySelector("#weather-form");
